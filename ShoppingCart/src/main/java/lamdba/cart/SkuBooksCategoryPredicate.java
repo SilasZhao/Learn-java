@@ -1,4 +1,4 @@
-package com.cart;
+package lamdba.cart;
 
 public class SkuBooksCategoryPredicate implements SkuPredicate{
     @Override

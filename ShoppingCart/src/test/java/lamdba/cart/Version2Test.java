@@ -1,19 +1,15 @@
-package cart;
+package lamdba.cart;
 
 import com.alibaba.fastjson.JSON;
-import com.cart.CartService;
-import com.cart.Sku;
 import org.junit.Test;
 
 import java.util.List;
 
-public class Version3Test {
+public class Version2Test {
     @Test
-    public void filterSkus(){
+    public void filterSkusByCategory(){
         List<Sku> cartSkuList = CartService.getCartSkuList();
-        List<Sku> result = CartService.filterSkus(cartSkuList,null,2000.00,false);
+        List<Sku> result = CartService.filterSkusByCategory(cartSkuList, SkuCategoryEnum.BOOKS);
         System.out.println(JSON.toJSONString(result,true));
-
     }
-
 }

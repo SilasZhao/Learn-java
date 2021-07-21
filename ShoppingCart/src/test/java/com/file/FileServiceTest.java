@@ -1,6 +1,5 @@
-package lamdba.file;
+package com.file;
 
-import com.file.FileService;
 import org.junit.Test;
 
 import java.io.IOException;

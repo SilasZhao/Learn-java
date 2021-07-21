@@ -50,4 +50,17 @@ Stream 流:
 	Cart    -> fileter -> sorted -> map  -> collect
 	数据源 ->		       中间操作	   	->终端操作
 
-	
+
+收集器简介
+collect/Collector/Collectors
+		接口	/实现了collector的类
+预定义收集器功能
+	将流元素约合和汇总为一个值
+	将流元素分组
+	将流元素分区
+
+规约（reduce）：将stream流中元素转换成一个值
+	--初始值（identity）
+	--计算逻辑（accumulator）
+	--并行执行时多个部分结果的合并方式（combiner） 
+汇总（collect）：将stream流中元素转换成一个容器

@@ -1,9 +1,9 @@
-package com.cart;
+package lamdba.cart;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.cart.SkuCategoryEnum.ELECTRONICS;
+import static lamdba.cart.SkuCategoryEnum.ELECTRONICS;
 
 public class CartService {
 

@@ -1,4 +1,4 @@
-package com.cart;
+package lamdba.cart;
 
 public enum SkuCategoryEnum {
     CLOTHING(10, "服装类"),

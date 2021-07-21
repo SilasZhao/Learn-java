@@ -1,7 +1,5 @@
-package cart;
+package lamdba.cart;
 import com.alibaba.fastjson.JSON;
-import com.cart.CartService;
-import com.cart.Sku;
 import org.junit.Test;
 
 import java.util.List;
