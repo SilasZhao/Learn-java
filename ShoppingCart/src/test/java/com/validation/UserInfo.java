@@ -5,15 +5,31 @@ import java.util.Calendar;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
+import javax.swing.*;
+import javax.validation.GroupSequence;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import javax.validation.groups.Default;
 import java.util.List;
 
 /**
  * 待验证对象
  */
 public class UserInfo {
-    @NotNull(message = "ID cannot be empty")
+    //登陆场景
+    public interface LoginGroup{}
+    //注册场景
+    public interface RegisterGroup{}
+
+    //组排序场景
+    @GroupSequence({
+            LoginGroup.class,
+            RegisterGroup.class,
+            Default.class
+    })
+    public interface Group{}
+
+    @NotNull(message = "ID cannot be empty", groups= LoginGroup.class)
     private String userId;
     @NotEmpty(message = "name cannot be empty")
     private String userName;
@@ -22,6 +38,7 @@ public class UserInfo {
     @Length(min = 6, max = 20, message  = "length of password should between 6-20 digits")
     private String passWord;
     @Email(message= "please enter a valid email address")
+    @NotNull(message = "email cannot be empty", groups = RegisterGroup.class)
     private String email;
     @Min(value = 18, message = "age cannot be smaller than 18")
     @Max(value = 60, message = "you cannot be older than 60")
@@ -30,7 +47,16 @@ public class UserInfo {
     private Data birthday;
     @Size(min = 1, message = "cannot have less than 1 friend")
     private List<@Valid UserInfo> friends;
+    @Phone(message = "手机号不是158开头")
+    private String phone;
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Integer getAge() {
         return age;
